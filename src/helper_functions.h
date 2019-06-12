@@ -15,6 +15,7 @@
 #include <string>
 #include <vector>
 #include "map.h"
+#include <cmath>
 
 // for portability of M_PI (Vis Studio, MinGW, etc.)
 #ifndef M_PI
@@ -247,5 +248,8 @@ inline bool read_landmark_data(std::string filename,
   }
   return true;
 }
+
+
+
 
 #endif  // HELPER_FUNCTIONS_H_

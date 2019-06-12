@@ -25,6 +25,41 @@ string hasData(string s) {
   return "";
 }
 
+
+/* Testing purposes */
+/*
+int main() {
+	
+	// Create particle filter
+	ParticleFilter pf;
+	double sense_x = 100.0;
+	double sense_y = 100.0;
+	double sense_theta = 0.0 * M_PI / 180.0;
+	double sigma_pos[3] = {1.0, 1.0, 0.1};
+	
+	pf.init(sense_x, sense_y, sense_theta, sigma_pos);
+	
+	
+	int num_particles = pf.particles.size();
+	
+	for (int i = 0; i < num_particles; i++) {
+		// Print your samples to the terminal
+		std::cout << "Particle " << i + 1 << " " << pf.particles[i].x << " " << pf.particles[i].y << " " << pf.particles[i].theta << std::endl;
+	}
+	
+	double delta_t = 0.1;
+	double velocity = 2000;
+	double yaw_rate = 0.1;
+	
+	pf.prediction(delta_t, sigma_pos, velocity, yaw_rate);
+	
+	for (int i = 0; i < num_particles; i++) {
+		// Print your samples to the terminal
+		std::cout << "Particle " << i + 1 << " " << pf.particles[i].x << " " << pf.particles[i].y << " " << pf.particles[i].theta << std::endl;
+	}
+}
+*/
+
 int main() {
   uWS::Hub h;
 
@@ -127,8 +162,8 @@ int main() {
             weight_sum += particles[i].weight;
           }
 
-          std::cout << "highest w " << highest_weight << std::endl;
-          std::cout << "average w " << weight_sum/num_particles << std::endl;
+          //std::cout << "highest w " << highest_weight << std::endl;
+          //std::cout << "average w " << weight_sum/num_particles << std::endl;
 
           json msgJson;
           msgJson["best_particle_x"] = best_particle.x;
